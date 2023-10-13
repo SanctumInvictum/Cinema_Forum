@@ -1,16 +1,14 @@
-# This is a sample Python script.
+from fastapi import FastAPI
+from authorization.base import router as router_auth
+from pages.router import router as router_pages
+app = FastAPI(
+    title="Cinema Forum!"
+)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+app.include_router(router_auth)
+app.include_router(router_pages)
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Для запуска прописываем в треминал:
+# uvicorn main:app --reload
+# И переходим по этому адресу для получения удобного интерфейса работы с бэкендом
+# http://127.0.0.1:8000/docs
