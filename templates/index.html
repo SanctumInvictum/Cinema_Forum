@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<body>
+
+<style>
+          header {
+            position: relative;
+            height: 10vh; /* Adjust the height as needed */
+            overflow: hidden;
+            background-color: #2892de; /* Set your desired background color */
+            color: #ffffff; /* Set the text color to contrast with the background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-height: 10vh;
+            height: 100%;
+            object-fit: cover;
+        }
+</style>
+
+<header>
+    <!-- The HTML5 video element that will create the background video on the header -->
+    <video width="100%" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="{{ url_for('static', path='video/video_index.mp4') }}" type="video/mp4">
+    </video>
+</header>
+
+<!-- Sidebar-->
+<div class="d-flex" id="wrapper">
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Общее</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Фильмы</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Романтика</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Комедия</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Триллеры</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Ужасы</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Фантастика</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Боевик</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Приключения</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Спорт</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Биографический</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Триллер</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Фэнтези</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Эротика</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Криминал</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Короткометражный</a>
+        </div>
+
+    </div>
+
+
+    <!-- Page content wrapper -->
+    <div id="page-content-wrapper" class="w-100">
+        <!-- Top navigation (заглушка)-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        </nav>
+
+
+{#        <!-- section title ends -->#}
+{#        <div id="cardContent" class="row pt-1 px-5">#}
+{#            <div class="col-md-10">#}
+{#                <div class="media blog-media w-100">#}
+{#                    <a href="blog-post-left-sidebar.html"><img class="d-flex"#}
+{#                                                               src="https://www.bootdey.com/image/350x380/6495ED/000000"#}
+{#                                                               alt="Generic placeholder image"></a>#}
+{#                    <div class="circle">#}
+{#                        <h5 class="day">14</h5>#}
+{#                        <span class="month">sep</span>#}
+{#                    </div>#}
+{#                    <div class="media-body">#}
+{#                        <a href=""><h5 class="mt-0">Standard Blog Post</h5></a>#}
+{#                        Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.#}
+{#                        <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>#}
+{##}
+{#                        <div class="row">#}
+{#                            <div class="col-sm text-center">by: username</div>#}
+{#                            <div class="col-sm text-center">Love: 10</div>#}
+{#                            <div class="col-sm text-center"><a href="blog-post-left-sidebar.html">07 comments</a></div>#}
+{#                            <div class="col-sm text-center">Date: 14.09.2023</div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+
+{#        <div class="row pt-1 px-5">#}
+{#            <div class="col-md-10">#}
+{#                <div class="media blog-media w-100">#}
+{#                    <a href="blog-post-left-sidebar.html"><img class="d-flex"#}
+{#                                                               src="https://www.bootdey.com/image/350x380/6495ED/000000"#}
+{#                                                               alt="Generic placeholder image"></a>#}
+{#                    <div class="circle">#}
+{#                        <h5 class="day">9</h5>#}
+{#                        <span class="month">sep</span>#}
+{#                    </div>#}
+{#                    <div class="media-body">#}
+{#                        <a href=""><h5 class="mt-0">Standard Blog Post</h5></a>#}
+{#                        Sodales aliquid, in eget ac cupidatat velit autem numquam ullam ducimus occaecati placeat error.#}
+{#                        <a href="blog-post-left-sidebar.html" class="post-link">Read More</a>#}
+{##}
+{#                        <div class="row">#}
+{#                            <div class="col-sm text-center">by: username</div>#}
+{#                            <div class="col-sm text-center">Love: 10</div>#}
+{#                            <div class="col-sm text-center"><a href="blog-post-left-sidebar.html">07 comments</a></div>#}
+{#                            <div class="col-sm text-center">Date: 09.09.2023</div>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+</body>
+{% endblock %}
+
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', path='js/index.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', path='js/jquery.min.js') }}"></script>
+{% endblock %}

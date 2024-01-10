@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block css %}
+<!-- TinyMCE CDN (важно, чтобы эти скрипты загружались в начале) -->
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+{#<script src="../js/text_editor/text_editor.js"></script>#}
+<script src="{{ url_for('static', path='js/text_editor/text_editor.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<body>
+<!--Page content-->
+<div class="container mt-4 mb-4">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-8">
+            <h1 class="h2 mb-4">Создание рецензии</h1>
+            <div class="form-group mb-2">
+                <label for="name">Название рецензии</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+
+            <form>
+              <div class="form-group mb-2">
+                <label for="DownloadImg">Добавьте главное изображение</label>
+                <input type="file" class="form-control-file form-control" id="DownloadImg">
+              </div>
+            </form>
+
+            <div class="form-group mb-2">
+              <label>Содержание рецензии</label>
+              <textarea id="editor"></textarea>
+            </div>
+
+
+            <hr>
+
+            <div class="form-group form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="terms">
+                <label class="form-check-label" for="terms">Я соглашаюсь с <a href="#">политикой и условиями сайта</a></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Создать</button>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
+
+
+
+{% block scripts %}
+{% endblock %}

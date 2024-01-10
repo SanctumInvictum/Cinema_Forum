@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Cinemaforum</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+
+    <link href="{{ url_for('static', path='bootstrap-5.0.2-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/index/media.blog-media.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/login/login_form.css') }}" rel="stylesheet">
+
+    {% block css %}
+    {% endblock %}
+
+</head>
+
+
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="card-body p-4 p-sm-5">
+                <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
+                <form>
+                    <div class="form-floating mb-3">
+                        <input id="modalEmailInput" type="email" class="form-control" id="floatingInput"
+                               placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input id="modalPasswordInput" type="password" class="form-control" id="floatingPassword"
+                               placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                        <label class="form-check-label" for="rememberPasswordCheck">
+                            Remember password
+                        </label>
+                    </div>
+                    <div class="d-grid">
+                        <button id="modalSignInBtn" class="btn btn-primary btn-login text-uppercase fw-bold"
+                                type="button">Sign
+                            in
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="d-grid mb-2">
+                        <button id="modalSignUpBtn" class="btn btn-google btn-login text-uppercase fw-bold"
+                                type="button">
+                            <i class="fab fa-google me-2"></i> Sign up
+                        </button>
+{#                        <button id="signUpBtn" style="display: none;" class="btn btn-facebook btn-login text-uppercase fw-bold" type="button">Sign#}
+{#                            up</button>#}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block navigation %}
+    <!-- Responsive navbar-->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a id="nameBrand" class="navbar-brand" href="#">Cinemaforum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex">
+                    <input id="searchInput" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                    <button id="searchBtn" class="btn btn-outline-success" type="button">Поиск</button>
+                </form>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li id="popularLink" class="nav-item"><a class="nav-link active" aria-current="page" href="#">Популярное</a>
+                    </li>
+{#                    <li id="randomLink" class="nav-item"><a class="nav-link" href="#">Рандомная рецензия</a></li>#}
+                    <li id="signUpMenu" class="nav-item">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                            Войти
+                        </button>
+                    </li>
+                    <!--        Залогиненный пользователь        -->
+                    <li id="loggedMenu" class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">Username</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+{#                            <li><a class="dropdown-item" href="#">Мой профиль</a></li>#}
+{#                            <li><a class="dropdown-item" href="#">Мои рецензии</a></li>#}
+{#                            <li>#}
+{#                                <hr class="dropdown-divider"/>#}
+{#                            </li>#}
+
+                            <li id="logoutBtn" ><a class="dropdown-item" href="#">Выйти</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+
+
+{# body #}
+{% block content %}
+{% endblock %}
+
+
+
+
+<!-- Bootstrap core JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"
+        integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="{{ url_for('static', path='bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', path='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', path='js/base.js') }}"></script>
+<script src="{{ url_for('static', path='js/auth.js') }}"></script>
+{#<script src="{{ url_for('static', path='js/signup.js') }}"></script>#}
+<script src="{{ url_for('static', path='js/search1.js') }}"></script>
+<!-- Core theme JS-->
+{% block scripts %}
+{% endblock %}
+
+</html>
